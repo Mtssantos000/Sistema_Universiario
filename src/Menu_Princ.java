@@ -6,7 +6,7 @@
 
 /**
  *
- * @author josejailtonjunior
+ * @author Matheus Dos Santos
  */
 import java.awt.CardLayout;
 import java.io.File;
@@ -14,10 +14,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Menu extends javax.swing.JFrame {
+
+    ArrayList<String> Aluno = new ArrayList();
+    ArrayList<String> Professor = new ArrayList();
+    ArrayList<String> Livro = new ArrayList();
+    ArrayList<String> Bolsist = new ArrayList();
 
     /**
      * Creates new form Menu
@@ -112,8 +121,8 @@ public class Menu extends javax.swing.JFrame {
 
     }
 
-    private void salvarlivro(){
-         try {
+    private void salvarlivro() {
+        try {
             File fw = new File("Livro.txt");
 //    TRUE PARA NAO SOBRESCREVER OS ARQUIVOS
             FileWriter escrever = new FileWriter(fw, true);
@@ -127,7 +136,7 @@ public class Menu extends javax.swing.JFrame {
             org.write(TxRec_Edi.getText());
             org.newLine();
             org.write(TxRec_Qua.getText());
-            org.newLine();            
+            org.newLine();
             org.close();
             JOptionPane.showMessageDialog(null, "Livro cadastrado");
             TxRec_Autor.setText(null);
@@ -140,6 +149,7 @@ public class Menu extends javax.swing.JFrame {
 
         }
     }
+
     private void salvarProf() {
         try {
             File fw = new File("Prof.txt");
@@ -1370,12 +1380,61 @@ public class Menu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         salvarlivro();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void BtExcluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtExcluirAlunoActionPerformed
         // TODO add your handling code here:
-        
+
+        try {
+            File arquivo = new File("Alunos.txt");
+            FileReader ler;
+            ler = new FileReader(arquivo);
+            BufferedReader organizar = new BufferedReader(ler);
+            ArrayList<String> linhas = new ArrayList();
+            boolean buscar = false; 
+            int i = 0;
+
+            while (organizar.ready()) {
+                linhas.add(i, organizar.readLine());
+                i++;
+            }
+            String Matricula_Aluno = TxtRec_Mat1.getText();
+            for (int j = 0; j < linhas.size(); j++) {
+                if (linhas.get(j).equals(Matricula_Aluno)) {
+                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+//                    linhas.remove(j);
+
+                    buscar = true;
+                }//Fim do if
+            }///Fim do for
+
+            if (buscar == false) {
+                JOptionPane.showMessageDialog(null, "O aluno não foi enocntrado");
+            }
+
+            FileWriter escrever = new FileWriter(arquivo);
+            BufferedWriter organizar2 = BufferedWriter(escrever);
+            for (int j = 0; j < linhas.size(); j++) {
+                organizar2.write(linhas.get(j));
+                organizar2.newLine();
+            }
+            organizar2.close();
+            TxtRec_Mat1.setText(null);
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_BtExcluirAlunoActionPerformed
 
     /**
@@ -1510,4 +1569,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     // End of variables declaration//GEN-END:variables
+
+    private BufferedReader BufferedReader(FileWriter escrever) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    private BufferedWriter BufferedWriter(FileWriter escrever) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
