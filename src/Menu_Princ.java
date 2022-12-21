@@ -386,8 +386,11 @@ public class Menu_Princ extends javax.swing.JFrame {
         TxRec_Mat = new javax.swing.JTextField();
         TxRec_TituPro = new javax.swing.JTextField();
         TxRec_Dura = new javax.swing.JTextField();
-        BtCadBols = new javax.swing.JButton();
         Bt_vol = new javax.swing.JButton();
+        BtCadBols1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TxEx_Bol = new javax.swing.JTextArea();
+        Bt_excluirbol = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -869,7 +872,7 @@ public class Menu_Princ extends javax.swing.JFrame {
                             .addGroup(Cad_ProfLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(TxtRec_Bairro, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(TxtRec_Cidade, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))
-                        .addGap(0, 224, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(Cad_ProfLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1196,17 +1199,28 @@ public class Menu_Princ extends javax.swing.JFrame {
 
         TipoPro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tipo de projeto", "Pesquisa", "Extensão" }));
 
-        BtCadBols.setText("Cadastrar");
-        BtCadBols.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtCadBolsActionPerformed(evt);
-            }
-        });
-
         Bt_vol.setText("Voltar");
         Bt_vol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Bt_volActionPerformed(evt);
+            }
+        });
+
+        BtCadBols1.setText("Cadastrar");
+        BtCadBols1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtCadBols1ActionPerformed(evt);
+            }
+        });
+
+        TxEx_Bol.setColumns(20);
+        TxEx_Bol.setRows(5);
+        jScrollPane2.setViewportView(TxEx_Bol);
+
+        Bt_excluirbol.setText("Excluir");
+        Bt_excluirbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Bt_excluirbolActionPerformed(evt);
             }
         });
 
@@ -1218,59 +1232,57 @@ public class Menu_Princ extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BolsistaLayout.createSequentialGroup()
-                        .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8)
-                            .addComponent(TxRec_TituPro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(BolsistaLayout.createSequentialGroup()
-                        .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel29)
-                            .addComponent(TxRec_Dura, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BolsistaLayout.createSequentialGroup()
                         .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(BolsistaLayout.createSequentialGroup()
+                                .addComponent(Bt_excluirbol)
+                                .addGap(33, 33, 33)
+                                .addComponent(BtCadBols1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel8)
+                                .addComponent(TxRec_TituPro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(TxRec_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
-                                .addComponent(TipoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(BolsistaLayout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(Bt_vol)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BtCadBols, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(47, 47, 47))))
-            .addGroup(BolsistaLayout.createSequentialGroup()
-                .addGap(219, 219, 219)
-                .addComponent(jLabel7)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addComponent(jLabel29)
+                                .addComponent(TxRec_Dura, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TipoPro, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel7)))
+                        .addGap(88, 88, 88)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Bt_vol))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        BolsistaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BtCadBols, Bt_vol});
+        BolsistaLayout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {BtCadBols1, Bt_excluirbol, Bt_vol});
 
         BolsistaLayout.setVerticalGroup(
             BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BolsistaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel7)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel6)
+                .addContainerGap()
+                .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(BolsistaLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(41, 41, 41)
+                        .addComponent(jLabel6)
+                        .addGap(11, 11, 11)
+                        .addComponent(TxRec_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxRec_TituPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxRec_Dura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TipoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BtCadBols1)
+                            .addComponent(Bt_excluirbol))
+                        .addGap(0, 147, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(TxRec_Mat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TipoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(2, 2, 2)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxRec_TituPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel29)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(TxRec_Dura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
-                .addGroup(BolsistaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BtCadBols)
-                    .addComponent(Bt_vol))
+                .addComponent(Bt_vol)
                 .addGap(33, 33, 33))
         );
 
@@ -1497,12 +1509,6 @@ public class Menu_Princ extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro");
         }
     }//GEN-LAST:event_BtCons_ProfActionPerformed
-
-    private void BtCadBolsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadBolsActionPerformed
-        // TODO add your handling code here:
-        salvarBolsista();
-
-    }//GEN-LAST:event_BtCadBolsActionPerformed
 
     private void Bt_Cad_BolsistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_Cad_BolsistaActionPerformed
         // TODO add your handling code here:
@@ -1837,7 +1843,7 @@ public class Menu_Princ extends javax.swing.JFrame {
                     File arquivo = new File("Prof.txt");
                     FileReader ler = new FileReader(arquivo);
                     BufferedReader org1 = new BufferedReader(ler);
-                    ArrayList<String> linhas = new ArrayList<>();
+                    ArrayList<String> linhas = new ArrayList();
                     boolean buscar = false;
                     int i = 0;
                     while (org1.ready()) {
@@ -2032,6 +2038,132 @@ public class Menu_Princ extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Bt_DevolverActionPerformed
 
+    private void BtCadBols1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtCadBols1ActionPerformed
+        // TODO add your handling code here:
+        
+         try{
+        File arquivo = new File("Alunos.txt");
+        FileReader ler = new FileReader(arquivo);
+        BufferedReader org = new BufferedReader(ler);
+        ArrayList<String> linhas2 = new ArrayList();
+        File arquivo2 = new File("Bolsista.txt");
+        FileWriter escrever = new FileWriter(arquivo2, true);
+        BufferedWriter abc = new BufferedWriter(escrever);
+         while(org.ready()){
+        linhas2.add(org.readLine());
+         }
+        boolean buscar = false;
+      for(int i=0; i < linhas2.size(); i++){
+      if(TxRec_Mat.getText().equals(linhas2.get(i))){
+         abc.write(linhas2.get(i));
+         abc.newLine();
+         abc.write(linhas2.get(i+1));
+         abc.newLine();
+         abc.write(linhas2.get(i+2));
+         abc.newLine();
+         abc.write(TxRec_TituPro.getText());
+         abc.newLine();
+         abc.write(TxRec_Dura.getText());
+         abc.newLine();         
+         String curs="";
+         if(TipoPro.getSelectedIndex()==1){
+             curs="Pesquisa";
+         }
+         if(TipoPro.getSelectedIndex()==2){
+             curs="Extensão";
+         }
+         abc.write(curs);
+         abc.newLine();         
+         TxEx_Bol.append("Matricula: "+linhas2.get(i)+"\n");
+         TxEx_Bol.append("Nome: "+linhas2.get(i+1)+"\n");
+         TxEx_Bol.append("CPF: "+linhas2.get(i+2)+"\n");
+         TxEx_Bol.append("RG: "+linhas2.get(i+3)+"\n");
+         TxEx_Bol.append("Nome do projeto: "+TxRec_TituPro.getText()+"\n");
+         TxEx_Bol.append("Duração do projeto: "+TxRec_Dura.getText()+"\n");
+         if(TipoPro.getSelectedIndex()==1){
+         TxEx_Bol.append("Tipo de projeto: Pequisa"+"\n");
+             
+         }
+         else if(TipoPro.getSelectedIndex()==2){
+         TxEx_Bol.append("Tipo de projeto: Extensão"+"\n");
+             
+         }
+         abc.close();
+         JOptionPane.showMessageDialog(null, "Bolsista cadastrado");
+         TxRec_Mat.setText(null);
+         TxRec_TituPro.setText(null);
+         TxRec_Dura.setText(null);
+         TipoPro.setSelectedIndex(0);
+         buscar = true;
+         break;
+         }        
+      } 
+     if(buscar == false){
+    JOptionPane.showMessageDialog(null, "Não foi encontrado o cadastro");
+      }
+        }
+        catch(Exception Erro){
+            
+            }
+    }//GEN-LAST:event_BtCadBols1ActionPerformed
+
+    private void Bt_excluirbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Bt_excluirbolActionPerformed
+        // TODO add your handling code here:
+        if("".equals(TxRec_Mat.getText())){
+            JOptionPane.showMessageDialog(null, "Insira uma matricula pra poder remover");
+        }
+        else{
+
+            try {
+                File arquivo = new File("Bolsista.txt");
+                FileReader ler = new FileReader(arquivo);
+                BufferedReader org = new BufferedReader(ler);
+                ArrayList<String> Linhas = new ArrayList();
+                boolean busca =false;
+                int i=0;
+                while (org.ready()) {
+                    Linhas.add(org.readLine());
+                    i++;
+                }
+
+                boolean buscar = false;
+                for (int j = 0; j < Linhas.size(); j++) {
+                    if (TxRec_Mat.getText().equals(Linhas.get(i))) {
+                        TxRec_TituPro.setText(Linhas.get(i + 3));
+                        TxRec_Dura.setText(Linhas.get(i + 4));
+                        if (Linhas.get(i + 5).equals("Pesquisa")) {
+                            TipoPro.setSelectedIndex(1);
+                        }
+                        if (Linhas.get(i + 5).equals("Extensão")) {
+                            TipoPro.setSelectedIndex(2);
+                        }
+
+                        Linhas.remove(j);
+                        Linhas.remove(j);
+                        Linhas.remove(j);
+                        Linhas.remove(j);
+                        Linhas.remove(j);
+                        Linhas.remove(j);
+                        
+                        TxRec_Mat.setText(null);
+                        TxRec_Dura.setText(null);
+                        TxRec_TituPro.setText(null);
+                        TipoPro.setSelectedIndex(0);
+
+                        busca = true;
+                        break;
+                    }
+                }
+                if (buscar == false) {
+                    JOptionPane.showMessageDialog(null, "Matricula nao encontrado!");
+                }
+
+            } catch (Exception erro) {
+                JOptionPane.showMessageDialog(null, "Erro");
+            }
+        }
+    }//GEN-LAST:event_Bt_excluirbolActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2076,7 +2208,7 @@ public class Menu_Princ extends javax.swing.JFrame {
     private javax.swing.JButton BtAlterar_Aluno;
     private javax.swing.JButton BtAlterar_Prof;
     private javax.swing.JButton BtCad1;
-    private javax.swing.JButton BtCadBols;
+    private javax.swing.JButton BtCadBols1;
     private javax.swing.JButton BtCad_Prof;
     private javax.swing.JButton BtCons_Prof;
     private javax.swing.JButton BtConsultar;
@@ -2090,6 +2222,7 @@ public class Menu_Princ extends javax.swing.JFrame {
     private javax.swing.JButton Bt_Cad_Prof;
     private javax.swing.JButton Bt_Devolver;
     private javax.swing.JButton Bt_Emprestar;
+    private javax.swing.JButton Bt_excluirbol;
     private javax.swing.JButton Bt_vol;
     private javax.swing.JPanel Cad_Alu;
     private javax.swing.JPanel Cad_Prof;
@@ -2101,6 +2234,7 @@ public class Menu_Princ extends javax.swing.JFrame {
     private javax.swing.JTextField Rec_Titu;
     private javax.swing.JTable TableLivros;
     private javax.swing.JComboBox<String> TipoPro;
+    private javax.swing.JTextArea TxEx_Bol;
     private javax.swing.JTextField TxRec_Dura;
     private javax.swing.JTextField TxRec_Mat;
     private javax.swing.JTextField TxRec_TituPro;
@@ -2158,6 +2292,7 @@ public class Menu_Princ extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
     private BufferedReader BufferedReader(FileWriter escrever) {
